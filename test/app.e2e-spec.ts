@@ -11,7 +11,7 @@ describe('AppController (e2e)', () => {
     let app: INestApplication;
     let profilesService: ProfilesService
 
-    beforeEach(async () => {
+    beforeAll(async () => {
         const moduleFixture: TestingModule = await Test.createTestingModule({
             imports: [AppModule],
         }).compile();
@@ -23,9 +23,8 @@ describe('AppController (e2e)', () => {
     });
 
     // Closing app after all tests => not hanging.
-    afterAll(async (done) => {
+    afterAll(async () => {
         app.close();
-        done();
     });
     
     //Testing the creation of a new user
